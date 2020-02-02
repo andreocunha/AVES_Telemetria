@@ -21,11 +21,11 @@ HX711 balanca3;
 HX711 balanca4;
 HX711 balanca5;
 
-float calibration_factor1 = 101800;
-float calibration_factor2 = 101800;
-float calibration_factor3 = 101800;
-float calibration_factor4 = 101800;
-float calibration_factor5 = 101800;
+float calibration_factor1 = 102800;
+float calibration_factor2 = 102500;
+float calibration_factor3 = 103200;
+float calibration_factor4 = 102800;
+float calibration_factor5 = 101900;
 
 float peso1;
 float peso2;
@@ -57,39 +57,40 @@ void zeraBalanca ()
   balanca3.tare();
   balanca4.tare();
   balanca5.tare();
-  Serial.println("Balança Zerada");
+  Serial.println("Balança Zerada\n");
+  Serial.println("Pesos em kg\n");
+  Serial.print("Peso1:\t");
+  Serial.print("Peso2:\t");
+  Serial.print("Peso3:\t");
+  Serial.print("Peso4:\t");
+  Serial.println("Peso5:");
 }
 
 void loop()
 {
-  Serial.print("Peso1: ");
+  
   peso1 = balanca1.get_units();
   Serial.print(peso1, 3);
-  Serial.print(" kg");
   Serial.print("\t");
 
-  Serial.print("Peso2: ");
+  
   peso2 = balanca2.get_units();
   Serial.print(peso2, 3);
-  Serial.print(" kg");
   Serial.print("\t");
 
-  Serial.print("Peso3: ");
+  
   peso3 = balanca3.get_units();
   Serial.print(peso3, 3);
-  Serial.print(" kg");
   Serial.print("\t");
 
-  Serial.print("Peso4: ");
+  
   peso4 = balanca4.get_units();
   Serial.print(peso4, 3);
-  Serial.print(" kg");
   Serial.print("\t");
 
-  Serial.print("Peso5: ");
+  
   peso5 = balanca5.get_units();
-  Serial.print(peso5, 3);
-  Serial.println(" kg");
+  Serial.println(peso5, 3);
  
   delay(500);
 }
